@@ -1,5 +1,10 @@
-In this file, you should describe your high-level approach, the challenges you faced, a list of properties/features of your design that you think is good, and an overview of how you tested your code.
+# Projet 3 Networks & Distributed Systems, February 2023
+## Description
+This project was to implement a Border Gateway Protocol (BGP) router. A BGP router sits on the edge of an Autonomous Systems (AS) and 
+communicates with neighboring routers. Its main goal is to forward data packets to their correct destination. To do this it must also keep
+an up-to-date forwarding table, based on messages received from neighbors, and help keep its neighbors' tables up to date, by sending messages to them. Neighboring relationships differ based on their type: peer, provider, or customer. This project was run in a simulator rather than over the real Internet, with different configurations for different complications that could arise, and required our program to have many sockets open at once, to represent the BGP neighbors.
 
+## Approach
 Our high level approach to this project was to first have code in run to parse the four different message types, 'update', 'dump', 'data', and 'withdraw' messages, each with a respective method that is called. 
 
 	Within the update method, the message is parsed in parse_update() where the new message is created and passed to update_table() and finally forward_message(). In update_table the peer field is changed and the update is either added to the forwarding table or aggregated. The message is then forwarded using forward_message(), where messages are forwarded to all routers (if the source is a customer), and dropped if the source is not.
