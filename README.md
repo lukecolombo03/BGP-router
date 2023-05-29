@@ -1,4 +1,4 @@
-# Projet 3 Networks & Distributed Systems, February 2023
+# Projet 3 for CS3700, February 2023
 ## Description
 This project was to implement a Border Gateway Protocol (BGP) router. A BGP router sits on the edge of an Autonomous Systems (AS) and 
 communicates with neighboring routers. Its main goal is to forward data packets to their correct destination. To do this it must also keep
